@@ -1,1 +1,18 @@
-
+delira[torch] > 0.4.1
+SimpleITK
+scipy
+numpy
+torchtools
+scikit-image
+torchvision
+pillow
+tqdm
+pyorthanc
+pydicom
+menpo
+menpofit
+batchgenerators
+joblib
+napari
+torchtools
+unet # git+https://github.com/justusschock/delira-unet-baseline

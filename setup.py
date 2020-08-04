@@ -29,7 +29,7 @@ readme = read_file(os.path.join(os.path.dirname(__file__), "README.md"))
 
 
 setup(
-    name='REPONAME',
+    name='whole_leg',
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
     packages=find_packages(),
@@ -40,8 +40,6 @@ setup(
     install_requires=requirements,
     tests_require=["coverage"],
     python_requires=">=3.7",
-    author="PhoenixDL",
-    maintainer='Justus Schock',
-    maintainer_email='justus.schock@rwth-aachen.de',
+    author="MSK Radiology University Hospital Düsseldorf",
     license='MIT',
 )
