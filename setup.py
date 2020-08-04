@@ -41,5 +41,5 @@ setup(
     tests_require=["coverage"],
     python_requires=">=3.7",
     author="MSK Radiology University Hospital Düsseldorf",
-    license='MIT',
+    license='GPL3',
 )
