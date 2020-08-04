@@ -172,4 +172,3 @@ class FemurMaskProcessor:
         drawer.draw_text((50, 50), "Angle: %.3f °" % outputs["angle"], fill="red")
 
         return drawer.img
-

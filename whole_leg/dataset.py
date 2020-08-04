@@ -171,8 +171,8 @@ def load_single_bone(
         min_idx = max(0, min(y_indices) - num_crop_idxs)
         max_idx = min(bone_mask.shape[1] - 1, max(y_indices) + num_crop_idxs)
 
-        bone_mask = bone_mask[:, min_idx : max_idx + 1, ...]
-        img = img[:, min_idx : max_idx + 1, ...]
+        bone_mask = bone_mask[:, min_idx: max_idx + 1, ...]
+        img = img[:, min_idx: max_idx + 1, ...]
 
         bone_mask = resize(bone_mask[0], size_after_cropping)[None, ...]
         img = resize(img[0], size_after_cropping)[None, ...]
@@ -291,4 +291,3 @@ class MultiObjectiveDataset(WholeLegDataset):
             load_fn=load_sample_psinet,
             **kwargs
         )
-

@@ -14,7 +14,7 @@ from skimage.measure import label
 
 def process_single_patient_dir(src_dir, dst_dir, resolution, left=True,
                                include_flipped=False):
-    
+
     if not os.path.isdir(src_dir):
         return
 
@@ -23,7 +23,7 @@ def process_single_patient_dir(src_dir, dst_dir, resolution, left=True,
                           and x.endswith(".png"))]
 
     for file in possible_files:
-        if not "Hintergrund" in file:
+        if "Hintergrund" not in file:
             continue
 
         imgs = {
@@ -94,7 +94,7 @@ def process_single_patient_dir(src_dir, dst_dir, resolution, left=True,
 
 def process_single_patient(patient_id, patient_dict, src_dir, dst_dir,
                            resolution, include_flipped=False):
-  
+
     combinations = []
 
     if patient_dict["left"]:
@@ -110,7 +110,7 @@ def process_single_patient(patient_id, patient_dict, src_dir, dst_dir,
 
 
 def convert_mask_to_binary(img):
-    
+
     img = rgba2rgb(img)
     gray = rgb2gray(img)
     binary_mask = gray != 1.
@@ -119,16 +119,15 @@ def convert_mask_to_binary(img):
 
 
 def filter_largest_region(mask):
-   
+
     labels = label(mask)
     assert (labels.max() != 0)  # assume at least 1 region
     return (
-            (labels == np.argmax(np.bincount(labels.flat)[1:]) + 1)*255
+        (labels == np.argmax(np.bincount(labels.flat)[1:]) + 1) * 255
     ).astype(np.uint8)
 
 
 def parse_root_dir(root_src_path):
-    
 
     valid_subdirs = []
 
@@ -145,12 +144,13 @@ def parse_root_dir(root_src_path):
         valid_subdirs.append(os.path.basename(subdir))
     return valid_subdirs
 
+
 def introduce_year_scheme(root_dir):
     year_dirs = sorted([os.path.join(root_dir, x) for x in os.listdir(root_dir)
                         if os.path.isdir(os.path.join(root_dir, x))])
 
     print(year_dirs)
-                    
+
     tmp_dir = root_dir + "_copy"
     os.makedirs(os.path.join(tmp_dir, "left"))
     os.makedirs(os.path.join(tmp_dir, "right"))
@@ -165,10 +165,10 @@ def introduce_year_scheme(root_dir):
 
                 for _dir in sub_dirs:
                     new_dir = str(os.path.dirname(_dir)
-                                        ).replace(os.path.join(year_dir,
-                                                               prev_ext),
-                                                os.path.join(tmp_dir,
-                                                             after_ext))
+                                  ).replace(os.path.join(year_dir,
+                                                         prev_ext),
+                                            os.path.join(tmp_dir,
+                                                         after_ext))
 
                     new_dir_name = str(os.path.basename(year_dir)).strip("PNG ") + "_" + str(os.path.basename(_dir))
                     new_dir = os.path.join(new_dir, new_dir_name)
@@ -179,10 +179,9 @@ def introduce_year_scheme(root_dir):
     return root_dir
 
 
-
 def process_zip_file(root_file, dst_path, include_flipped=False,
                      resolution=None, test_split=None, del_zip=False):
-    
+
     tmp_dir = os.path.join(tempfile.gettempdir(), "WholeLegXRay")
     # os.makedirs(tmp_dir, exist_ok=True)
 
@@ -223,7 +222,7 @@ def process_zip_file(root_file, dst_path, include_flipped=False,
         train_patients = all_patients
     else:
         train_patients, test_patients = train_test_split(all_patients,
-                                                         test_size=test_split/100)
+                                                         test_size=test_split / 100)
 
     train_set_files = []
     for patient in tqdm(train_patients):
@@ -267,7 +266,6 @@ if __name__ == '__main__':
                         help="Whether to delete the zip file after "
                              "extracting it")
 
-    
     args = parser.parse_args()
 
     if args.x_resolution is None or args.y_resolution is None:

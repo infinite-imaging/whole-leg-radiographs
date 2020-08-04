@@ -35,4 +35,3 @@ def lsf(mask, leave_out_percentage=(0.15, 0.15)):
     )
 
     return contour_points[0], line(contour_points[0])
-

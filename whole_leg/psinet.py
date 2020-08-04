@@ -358,4 +358,3 @@ class PsiNet(AbstractPyTorchNetwork):
             "label_distance": distance,
             **batch,
         }
-

@@ -9,12 +9,12 @@ def get_knee_level(mask, percentage_mid=0.5, percentage_side=0.15):
     min_x, max_x = get_top_width(mask)
     possible_indices = np.arange(np.floor(min_x), np.ceil(max_x))
 
-    mid = int(len(possible_indices)/2)
+    mid = int(len(possible_indices) / 2)
 
     num_pts_mid = int(len(possible_indices) * percentage_mid)
-    num_pts_side = int(len(possible_indices)*percentage_side)
-    lower_mid = int(mid - num_pts_mid/2)
-    upper_mid = int(mid + num_pts_mid/2)
+    num_pts_side = int(len(possible_indices) * percentage_side)
+    lower_mid = int(mid - num_pts_mid / 2)
+    upper_mid = int(mid + num_pts_mid / 2)
 
     x_vals = np.concatenate(
         [possible_indices[num_pts_side:lower_mid],
@@ -46,5 +46,3 @@ def determine_mid_of_knee(mask, femur_level, **kwargs):
     index_femur = int(np.mean(index_femur))
     y_femur_level = femur_level[0][index_femur]
     return y_femur_level + (y_tibia_level - y_femur_level) / 2, x
-
-

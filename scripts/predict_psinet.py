@@ -114,4 +114,3 @@ if __name__ == "__main__":
                     save_path, "per_class_all_masks", "image_%03d_tibia.png" % idx
                 )
             )
-

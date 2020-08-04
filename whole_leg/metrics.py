@@ -49,4 +49,3 @@ def dice_score_including_background(
 
         score += score_cls
     return score / (n_classes - bg)
-

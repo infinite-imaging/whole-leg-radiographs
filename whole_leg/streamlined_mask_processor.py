@@ -269,7 +269,7 @@ def calc_level_tibia2(mask, contour_pts, lsf, vert_tol=0.025, horiz_tol=0.25):
         valid_pt[1], valid_pt[0], 1, domain=[contour_pts[1].min(), contour_pts[1].max()]
     )
 
-    _, indices_level = get_contpt(mask[int(np.mean(contour_pts[0])) :])
+    _, indices_level = get_contpt(mask[int(np.mean(contour_pts[0])):])
     indices_level = np.arange(indices_level.min(), indices_level.max())
     return line(indices_level), indices_level
 

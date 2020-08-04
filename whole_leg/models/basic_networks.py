@@ -74,4 +74,3 @@ class BaseSegmentationTorchNetwork(AbstractPyTorchNetwork):
             .squeeze(1)
         )
         return {"data": data, "label": label, **batch}
-

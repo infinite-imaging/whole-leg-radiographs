@@ -145,4 +145,3 @@ if __name__ == "__main__":
     else:
         for args in tqdm(data):
             estim_func(args)
-

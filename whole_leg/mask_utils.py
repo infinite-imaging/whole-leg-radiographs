@@ -25,7 +25,7 @@ def get_side_contour_pts(mask, y: int):
 def calc_disc(mask, y: int):
     side_pts = get_side_contour_pts(mask, y)
 
-    return np.nonzero(1 - mask[y, side_pts[0] : side_pts[1]])[0] + side_pts[0]
+    return np.nonzero(1 - mask[y, side_pts[0]: side_pts[1]])[0] + side_pts[0]
 
 
 def get_lowest_mask_pt(mask):

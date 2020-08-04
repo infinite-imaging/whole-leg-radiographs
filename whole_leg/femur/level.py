@@ -131,13 +131,13 @@ def calc_level_v1(mask, rot=False, return_notch=True):
 
     right_pt = (
         np.array(
-            get_lowest_mask_pt(rotated_mask[notch_rot_int[0] :, : notch_rot_int[1]])
+            get_lowest_mask_pt(rotated_mask[notch_rot_int[0]:, : notch_rot_int[1]])
         )
         + offset_y
     )
     left_pt = (
         np.array(
-            get_lowest_mask_pt(rotated_mask[notch_rot_int[0] :, notch_rot_int[1] :])
+            get_lowest_mask_pt(rotated_mask[notch_rot_int[0]:, notch_rot_int[1]:])
         )
         + offset_y
         + offset_x

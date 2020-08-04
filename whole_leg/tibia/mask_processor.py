@@ -184,4 +184,3 @@ class TibiaMaskProcessor:
             )
 
         return drawer.img
-

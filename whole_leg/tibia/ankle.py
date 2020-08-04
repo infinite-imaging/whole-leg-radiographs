@@ -38,7 +38,7 @@ def calc_ankle_level(mask, vert_tol=0.025, horiz_tol=0.25):
         valid_pt[1], valid_pt[0], 1, domain=[contour[1].min(), contour[1].max()]
     )
 
-    _, indices_level = get_contour_points(mask[int(np.mean(contour[0])) :])
+    _, indices_level = get_contour_points(mask[int(np.mean(contour[0])):])
     indices_level = np.arange(indices_level.min(), indices_level.max())
     return line(indices_level), indices_level
 

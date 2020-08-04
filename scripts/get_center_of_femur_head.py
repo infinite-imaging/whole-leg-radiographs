@@ -40,4 +40,3 @@ if __name__ == "__main__":
         )
 
     img.save("/work/local/tmp.png")
-

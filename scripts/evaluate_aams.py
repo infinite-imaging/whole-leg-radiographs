@@ -70,4 +70,3 @@ if __name__ == "__main__":
     images = load_images(data_dir)
     for aam_file in aam_files[36:]:
         eval_aams(aam_file, deepcopy(images))
-

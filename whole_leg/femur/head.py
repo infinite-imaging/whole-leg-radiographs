@@ -83,4 +83,3 @@ class PointDeterminer:
                 tuple(zip(contour[0][indices], contour[1][indices])),
             )
         return yc, xc, radius
-

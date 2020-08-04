@@ -52,7 +52,7 @@ def segment_image(model, image, device,
     return mask_femur, mask_tibia
 
 
-def post_process_masks(mask min_size= 300):
+def post_process_masks(mask min_size=300):
     mask_filled = binary_fill_holes(mask)
     mask_removed_small = remove_small_objects(mask_filled, min_size)
 
@@ -88,8 +88,8 @@ def draw_one_side(whole_leg, img):
 
 
 def process_patient(patient, model,
-                    device, thresh = 0.5,
-                    draw = True, min_size=300,
+                    device, thresh=0.5,
+                    draw=True, min_size=300,
                     ):
     if isinstance(patient, list):
         patient = patient[0]

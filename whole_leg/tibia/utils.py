@@ -16,7 +16,7 @@ def get_top_width(mask):
 def get_bottom_width(mask):
     contour_y, _ = get_contpt(mask)
 
-    _, bottom_contour_x = get_contpt(mask[int(np.mean(contour_y)) :])
+    _, bottom_contour_x = get_contpt(mask[int(np.mean(contour_y)):])
     return bottom_contour_x.min(), bottom_contour_x.max()
 
 
