@@ -15,4 +15,4 @@ batchgenerators
 joblib
 napari
 torchtools
-unet # git+https://github.com/justusschock/delira-unet-baseline
+unet # git+https://github.com/justusperillieux/delira-unet-baseline
